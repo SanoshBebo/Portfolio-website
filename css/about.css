@@ -10,8 +10,24 @@
     margin-top: 2rem;
 }
 
-.about-containers p,
-h3 {
+/* Initially hide the content */
+.section__text__p1,
+.title,
+.section__pic-container img,
+.about-containers,
+.details-container,
+.details-container h3,
+.details-container p,
+.text-container p {
+    opacity: 0;
+}
+
+
+.about-containers p {
+    color: black;
+}
+
+.about-containers h3 {
     color: black;
 }
 

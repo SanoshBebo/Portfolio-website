@@ -35,3 +35,11 @@ function checkElements() {
 }
 
 window.addEventListener("scroll", checkElements);
+
+function scrollToContact() {
+  // Get the target element by its ID
+  const contactSection = document.getElementById("contact");
+
+  // Use smooth scrolling behavior
+  contactSection.scrollIntoView({ behavior: "smooth" });
+}

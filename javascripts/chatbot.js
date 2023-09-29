@@ -10,7 +10,7 @@ const sendChatBtn = document.querySelector(".chat-input span");
 
 let userMessage = null; // Variable to store user's message
 
-const API_KEY = "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"; // Paste your API key here
+const API_KEY = "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"; // Paste your API key here
 
 const inputInitHeight = chatInput.scrollHeight;
 
@@ -34,7 +34,7 @@ const createChatLi = (message, className) => {
 };
 
 const generateResponse = (chatElement) => {
-  const API_URL = "https://api.openai.com/v1/chat/completions";
+  const API_URL = "https://api.openai.com/v1/engines/gpt-3.5-turbo/completions";
 
   const messageElement = chatElement.querySelector("p");
 

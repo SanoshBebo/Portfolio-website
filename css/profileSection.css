@@ -8,6 +8,19 @@
     height: 80vh;
 }
 
+/* Initially hide the content */
+.section__text p,
+.section__text h1,
+.section__text p.section__text__p2,
+.btn-container,
+#socials-container {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+
+
+
 .section__pic-container {
     display: flex;
     margin: auto 0;
@@ -102,6 +115,8 @@
 
 .btn-color-2:hover {
     border: rgb(255, 255, 255) 0.1rem solid;
+    background-color: black;
+    color: #fff;
 }
 
 .btn-container {

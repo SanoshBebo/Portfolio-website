@@ -75,7 +75,7 @@
     animation-fill-mode: both;
     animation-duration: 1s;
     animation-timing-function: ease;
-    animation-delay: 0s;
+    animation-delay: 0.2s;
     animation-iteration-count: 1;
 }
 

@@ -6,7 +6,7 @@
 }
 
 .experience-sub-title {
-    color: rgb(85, 85, 85);
+    color: rgb(88, 88, 88);
     font-weight: 600;
     font-size: 1.75rem;
     margin-bottom: 2rem;
@@ -17,6 +17,28 @@
     justify-content: center;
     flex-direction: column;
     padding: 50px 0;
+}
+
+.details-container:hover {
+    background-color: rgb(88, 88, 88);
+    cursor: pointer;
+    transform: translateY(-15px);
+    transition: all 0.3s ease;
+}
+
+.details-container:hover article h3 {
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.details-container:hover h2 {
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.details-container:hover article p {
+    color: #fff;
+    transition: all 0.3s ease;
 }
 
 .article-container {
@@ -39,7 +61,10 @@ article .icon {
     cursor: default;
 }
 
-article p,
-h3 {
+article h3 {
+    color: black;
+}
+
+article h3 {
     color: black;
 }
