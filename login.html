@@ -16,7 +16,7 @@
         <input type="password" placeholder="Password" />
       </div>
       <button class="btn" onclick="login()">Login</button>
-      <button id="signInButton" class="btn-google">Sign in with Google</button>
+      <button class="btn">Sign in with Google</button>
       <p>
         Don't have an account? <a href="#" onclick="showSignup()">Sign up</a>
       </p>
@@ -35,7 +35,7 @@
         <input type="password" placeholder="Password" />
       </div>
       <button class="btn" onclick="signup()">Sign Up</button>
-      <button class="btn-google">Sign in with Google</button>
+      <button id="signInButton" class="btn">Sign in with Google</button>
       <p>
         Already have an account? <a href="#" onclick="showLogin()">Login</a>
       </p>
@@ -81,11 +81,12 @@
 
       const signInButton = document.getElementById("signInButton");
 
-      const userSignIn = async () => {
+      const GoogleSignIn = async () => {
         signInWithPopup(auth, provider)
           .then((result) => {
             const user = result.user;
             console.log(user);
+            location.replace("./index.html")
           })
           .catch((error) => {
             const errorCode = error.code;
@@ -93,7 +94,7 @@
           });
       };
 
-      const userSignOut = async () => {
+      const GoogleSignOut = async () => {
         signOut(auth)
           .then(() => {
             alert("you have signed out successfully!");
@@ -108,8 +109,86 @@
         }
       });
 
-      signInButton.addEventListener("click", userSignIn);
-      signOutButton.addEventListener("click", userSignOut);
+      signInButton.addEventListener("click", GoogleSignIn);
+      signOutButton.addEventListener("click", GoogleSignOut);
     </script>
+
+
+<script type="module">
+  //Update the below URL with the appropriate version if necessary.
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+  import {
+      getAuth,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      onAuthStateChanged,
+      signOut
+  //Update the below URL with the appropriate version if necessary.
+  } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-auth.js";
+ 
+
+  // INSERT YOUR FIREBASE CONFIG OBJECT HERE
+
+
+  const EmailApp = initializeApp(firebaseConfig);
+  const EmailAuth = getAuth(EmailApp);
+
+  const userEmail = document.querySelector("#userEmail");
+  const userPassword = document.querySelector("#userPassword");
+  const signUpButton = document.querySelector("#signUpButton");
+  const loginBtn = document.querySelector("#loginButton");
+
+  secretContent.style.display = 'none';
+
+  const userSignUp = async() => {
+      const signUpEmail = userEmail.value;
+      const signUpPassword = userPassword.value;
+      createUserWithEmailAndPassword(auth, signUpEmail, signUpPassword)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          console.log(user);
+          alert("Your account has been created!");
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode + errorMessage)
+      })
+  }
+
+  const userSignIn = async() => {
+      const signInEmail = userEmail.value;
+      const signInPassword = userPassword.value;
+      signInWithEmailAndPassword(auth, signInEmail, signInPassword)
+      .then((userCredential) => {
+          const user = userCredential.user;
+          alert("You have signed in successfully!");
+      })
+      .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          console.log(errorCode + errorMessage)
+      })
+  }
+
+  const checkAuthState = async() => {
+      onAuthStateChanged(auth, user => {
+          if(user) {
+          }
+          else {
+          }
+      })
+  }
+
+  const userSignOut = async() => {
+      await signOut(auth);
+  }
+
+  checkAuthState();
+
+  signUpButton.addEventListener('click', userSignUp);
+  signInButton.addEventListener('click', userSignIn);
+  signOutButton.addEventListener('click', userSignOut);
+</script>
   </body>
 </html>
