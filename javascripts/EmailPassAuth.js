@@ -58,7 +58,7 @@ const userSignUp = async () => {
         console.error("Error adding document: ", error);
       }
 
-      location.replace("../index.html");
+      location.replace("../home.html");
     })
     .catch((error) => {
       const errorCode = error.code;

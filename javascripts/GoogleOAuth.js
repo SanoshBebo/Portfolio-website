@@ -27,7 +27,7 @@ const GoogleSignIn = async () => {
   signInWithPopup(auth, provider)
     .then((result) => {
       const user = result.user;
-      location.replace("./index.html");
+      location.replace("./home.html");
     })
     .catch((error) => {
       const errorCode = error.code;
