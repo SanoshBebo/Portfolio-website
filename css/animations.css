@@ -1,0 +1,106 @@
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fade-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-in-left {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-right {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce-in {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation classes */
+
+/* Common animation properties for all animations */
+.animate {
+    animation-fill-mode: both;
+    animation-duration: 1s;
+    animation-timing-function: ease;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+}
+
+/* Apply animation names to specific elements with these classes */
+
+.fade-in-up.animate {
+    animation-name: fade-in-up;
+}
+
+.fade-in-right.animate {
+    animation-name: fade-in-right;
+}
+
+.fade-in.animate {
+    animation-name: fade-in;
+}
+
+.slide-in-left.animate {
+    animation-name: slide-in-left;
+}
+
+.slide-in-right.animate {
+    animation-name: slide-in-right;
+}
+
+.bounce-in.animate {
+    animation-name: bounce-in;
+}
