@@ -70,16 +70,29 @@ const userSignUp = async () => {
 const userSignIn = async () => {
   const signInEmail = loginemailInput.value;
   const signInPassword = loginpasswordInput.value;
+  const errorMessageDiv = document.getElementById("login-error-message"); // Get the error message div
+
   signInWithEmailAndPassword(EmailAuth, signInEmail, signInPassword)
     .then((userCredential) => {
       const user = userCredential.user;
-      alert("You have signed in successfully!");
-      location.replace("../index.html");
+      errorMessageDiv.textContent = ""; // Clear any previous error messages
+      location.replace("../home.html");
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      console.log(errorCode + errorMessage);
+      if (
+        errorCode === "auth/wrong-password" ||
+        errorCode === "auth/user-not-found" ||
+        errorCode === "auth/invalid-email"
+      ) {
+        // Display a custom error message for wrong password or user not found
+        errorMessageDiv.textContent =
+          "Wrong email or password. Please try again.";
+      } else {
+        console.log(errorCode + errorMessage);
+        // Handle other error cases as needed
+      }
     });
 };
 
